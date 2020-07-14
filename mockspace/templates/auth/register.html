@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 align="center">{% block title %}Register{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="reglogbody">
+            {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+      <div class="minidarksection"></div>
+  <form method="post" class="reglog">
+      <label class="reglog-label" for="username">Username</label>
+      <input class="input-field" name="username" id="username" required>
+      <label id="reglog-label qwe" style="margin-bottom: 0.5em" for="password">Password</label>
+      <input class="input-field" type="password" name="password" id="password" required>
+      <input class="reglog-button" type="submit" value="Register">
+  </form>
+  </div>
+{% endblock %}

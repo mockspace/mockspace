@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1 class="page-header">{% block title %}{{ service_name }} methods{% endblock %}</h1>
+{% if g.user and g.user['id'] == service['author_id'] %}
+<form action="{{ url_for('methods.create_method', service_name=service_name) }}">
+    <button type="submit" class="add-new">Add method</button>
+</form>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% for method in methods %}
+<a class="block-href" href="{{ url_for('methods.method', service_name=service_name, method_name=method['title']) }}">
+    <article class="post">
+        <header>
+            <div id="fields" style="
+        display: flex;
+      margin-bottom: 10px;
+      margin-top: 20px;
+        ">
+                <div class="field" style="margin-bottom: 0; flex-shrink: 1; margin-grow: 4rem; margin-right: 1rem;">
+                    <div class="name-method-title-block title" align="center">
+                        <p class="name-method-title title">{{ method['title'] }}</p>
+                        <!--          <div class="about">by {{ method['username'] }} on {{ method['created'].strftime('%Y-%m-%d') }}</div>-->
+                    </div>
+                </div>
+                <div class="field" style="margin-bottom: 0; flex-shrink: 1; margin-grow: 4rem; margin-right: 5rem;">
+                    <label for="status_code" style="margin-bottom: 0.5em">Status code</label>
+                    <div style="margin-top: 0.5em" align="center"><p>{{ method['status_code'] }}</p></div>
+                </div>
+                <div class="field" style="margin-bottom: 0; flex-shrink: 1; margin-grow: 4rem; margin-right: 5rem;">
+                    <label for="delay" style="margin-bottom: 0.5em">Delay (ms)</label>
+                    <div style="margin-top: 0.5em" align="center"><p>{{ method['delay'] }}</p></div>
+                </div>
+                <div class="field" style="margin-bottom: 0; flex-shrink: 1; margin-grow: 4rem; margin-right: 4rem;">
+                    <label for="supported_method" style="margin-bottom: 0.5em">Supported HTTP Method</label>
+                    <div style="margin-top: 0.5em" name="supported_method" align="center"><p>{{
+                        method['supported_method'] }}</p></div>
+                </div>
+            </div>
+            {% if g.user['id'] == method['author_id'] %}
+            <form action="{{ url_for('methods.update_method', service_name=service_name, method_name=method['title']) }}">
+                <div class="edit-control-methods">
+                    <button type="submit" class="edit">Edit</button>
+                </div>
+            </form>
+            {% endif %}
+        </header>
+    </article>
+</a>
+{% if not loop.last %}
+<div class="minidarksection"></div>
+{% endif %}
+{% endfor %}
+{% endblock %}

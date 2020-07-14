@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Edit {{ method['title'] }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="editbody">
+    {% for message in get_flashed_messages() %}
+    <div class="flash-service">{{ message }}</div>
+    {% endfor %}
+    <div class="minidarksection"></div>
+    <form method="post">
+        <label for="title">Method name</label>
+        <div><input class="input-field" name="title" id="title" maxlength="30"
+                    value="{{ request.form['title'] or method['title'] }}" required></div>
+        <label for="body">Response Body</label>
+        <textarea class="input-textarea" name="body" id="body">{{ request.form['body'] or method['body'] }}</textarea>
+        <div id="fields" style="
+        display: flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    .fields .field {
+      margin-bottom: 0; }
+    .fields > .field {
+      flex-shrink: 1; }
+      .fields > .field:not(.is-narrow) {
+        flex-grow: 0.1; }
+      .fields > .field:not(:last-child) {
+        margin-right: 0.1rem; } ">
+            <div class="field" style="margin-bottom: 0; flex-shrink: 1; margin-grow: 4rem; margin-right: 0.3rem;">
+                <label for="status_code" style="margin-bottom: 0.5em">Status Code</label>
+                <div style="margin-top: 0.5em"><input class="input-field" name="status_code" id="status_code"
+                                                      value="{{ request.form['status_code'] or method['status_code'] }}"
+                                                      required></div>
+            </div>
+            <div class="field" style="margin-bottom: 0; flex-shrink: 1; margin-grow: 4rem; margin-right: 0.3rem;">
+                <label for="delay" style="margin-bottom: 0.5em">Delay (ms)</label>
+                <div style="margin-top: 0.5em"><input class="input-field" name="delay" id="delay"
+                                                      value="{{ request.form['delay'] or method['delay'] }}" required>
+                </div>
+            </div>
+            <div class="field" style="margin-bottom: 0; flex-shrink: 1; margin-grow: 4rem; margin-right: 0.3rem;">
+                <label for="supported_method" style="margin-bottom: 0.5em">Supported HTTP Method</label>
+                <div style="margin-top: 0.5em"><input class="input-field" name="supported_method" id="supported_method"
+                                                      value="{{ request.form['supported_method'] or method['supported_method'] }}"
+                                                      required></div>
+            </div>
+        </div>
+        <script>
+      n = 0;
+      m = 0
+      function addHeader() {
+        // create new element
+        // and add num to each header name
+        n = n + 1;
+        header_num = " name='header" + n + "' "
+        var newDiv2 = document.createElement("header");
+            newDiv2.innerHTML = "<header" + n + ">\
+            <input" + " class='input-field-headers' name='header_name" + n + "' placeholder='name' id='header' value='' required=''>\
+            <input" + "  class='input-field-headers' name='header_value" + n + "' placeholder='value' id='header' value='' required=''>\
+            <input class='delete-header-button' type='button' value='Delete' onclick='removeHeader(" + n + ")'><br>\
+            </header>";
+
+        // add new element to DOM
+        my_div = document.querySelector("#under_header");
+        document.querySelector("#headers_here").appendChild(newDiv2);
+      }
+
+      function removeHeader(n) {
+        header_to_be_deleted_selector = "header" + n;
+        var header_for_remove = document.querySelector(header_to_be_deleted_selector);
+        header_for_remove.remove();
+      }
+
+       function loadHeaders(header_name, header_value) {
+            // create new element
+            // and add num to each header name
+            n = n + 1;
+            header_num = " name='header" + n + "' "
+            var newDiv2 = document.createElement("header");
+                newDiv2.innerHTML = "<header" + n + ">\
+                <input" + " class='input-field-headers' name='" + "header_name" + n + "' placeholder='name' id='header' value='" + header_name + "' required=''>\
+                <input" + " class='input-field-headers' name='" + "header_value" + n + "' placeholder='value' id='header' value='" + header_value + "' required=''>\
+                <input class='delete-header-button' type='button' value='Delete' onclick='removeHeader(" + n + ")'><br>\
+                </header>";
+
+            // add new element to DOM
+            my_div = document.querySelector("#under_header");
+            document.querySelector("#headers_here").appendChild(newDiv2);
+        }
+
+
+
+
+        </script>
+
+        <label>Headers</label>
+        <headers name="headers_list" id="headers_here">
+            {% for key, value in headers.items() %}
+            <script>loadHeaders('{{ key }}', '{{ value }}')</script>
+            {% endfor %}
+
+
+        </headers>
+
+        <div>
+            <button class="add-header-button" type="button" value="Add Header" onclick="addHeader()">Add Header</button>
+        </div>
+        <formbuttons>
+            <input class="save-button" type="submit" value="Save">
+            <a class="cancel-control" href="{{ url_for('methods.service', service_name=service_name) }}">
+                <input class="cancel-button" type="button" value="Cancel">
+            </a>
+
+            <a class="delete-control"
+               href="{{ url_for('methods.delete_method', service_name=service_name, method_name=method['title']) }}">
+                <input class="danger delete-button" type="button" value="Delete"
+                       onclick="return confirm('Are you sure?');">
+            </a>
+        </formbuttons>
+    </form>
+
+
+    <div class="minidarksection"></div>
+</div>
+{% endblock %}

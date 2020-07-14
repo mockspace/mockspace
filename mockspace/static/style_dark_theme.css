@@ -1,0 +1,515 @@
+html {
+  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+  background: #192023;
+  padding: 1rem;
+}
+
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #282b2e;
+}
+
+.editbody {
+  max-width: 960px;
+  background: #192023;
+  padding: 0 0 0;
+}
+
+.reglogbody {
+  max-width: 960px;
+  background: #192023;
+  padding: 0 0 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+  color: #daecee;
+  margin: 1rem 0;
+}
+
+a {
+  color: #daecee;
+}
+
+
+
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #99f;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #989696;
+}
+
+nav {
+  background: #34373b;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+nav h1 {
+  flex: auto;
+  margin: 0;
+}
+
+nav h1 a {
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+}
+
+nav ul  {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a, nav ul li span, header .action {
+  display: block;
+  padding: 0.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+
+}
+
+.username {
+  color: #212224;
+}
+
+.content p, .edit-content p {
+  color: #99f;
+  font-weight: 600;
+}
+
+.content p.name-method-title, .edit-content p.name-method-title {
+  color: #99f;
+  font-weight: 600;
+}
+
+.content > header {
+  border-bottom: 1px solid #989696;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.edit-content > header {
+  display: flex;
+  align-items: flex-end;
+  background: #192023;
+}
+
+.edit-content > header {
+  padding: 0 1rem 0rem;
+}
+
+.content > header h1, .edit-content > header h1 {
+  flex: auto;
+  margin: 1rem 0 0.25rem 0;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  font-weight: 400;
+
+}
+
+.flash {
+  padding: 20px;
+  color: #99f;
+  width: 216px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #282b2e;
+}
+
+.flash-service {
+  padding: 20px;
+  color: #99f;
+  width: 546px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #282b2e;
+}
+
+}
+
+.post .title {
+  text-decoration: none
+}
+
+.post > header {
+  display: flex;
+  align-items: flex-end;
+  font-size: 0.85em;
+}
+
+.post > header > div:first-of-type {
+  flex: auto;
+}
+
+
+
+.post > header h1 {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+.post .about {
+  color: slategray;
+  font-style: italic;
+}
+
+.post .body {
+  white-space: pre-line;
+}
+
+.content:last-child {
+  margin-bottom: 0;
+}
+
+.content .editbody form {
+  margin: 0em 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 554px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  background: #282b2e;
+  padding: 1 1rem 1rem;
+}
+
+.content .reglogbody form {
+  margin: 0em 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 224px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  background: #282b2e;
+  padding: 1rem 1rem 1rem;
+}
+
+.editbody form {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 104px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #282b2e;
+  padding: 1rem 1rem 1rem;
+  margin-top: 0;
+}
+
+formbuttons {
+  display: flex;
+}
+
+forms {
+  display: inline;
+}
+
+.content .editbody .delete-control {
+  margin: 0em 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  background: #282b2e;
+  margin-top: 0;
+  text-decoration: none;
+}
+
+.content label, .edit-content label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #daecee;
+  font-size: 14px;
+}
+
+.input-field , .input-textarea, .input-field-headers {
+  margin-bottom: 1em;
+  background: #212224;
+  color: #99f;
+  border: 1px solid #6d6368;
+}
+
+
+
+
+.content textarea, .edit-content textarea {
+  min-height: 12em;
+  resize: vertical;
+}
+
+input {
+  color: #000000;
+}
+
+
+input.danger {
+  color: #cc2f2e;
+}
+
+input[type=submit] {
+  align-self: start;
+  min-width: 10em;
+}
+
+#page-title {
+  margin-bottom: 2em
+  font-size: 10px;
+}
+
+.add-new {
+  margin-bottom: 2rem;
+}
+
+.edit, .add-new {
+  margin-top: 0.5em;
+  padding: 0 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight:600;
+}
+
+.edit, .save-button, .cancel-button, .delete-button, .reglog-button, .add-header-button, .delete-header-button {
+  color: #daecee;
+  background: #282b2e;
+  border: 1px solid #6d6368;
+  border-radius: 4px;
+}
+
+.add-new {
+  color: #daecee;
+  background: #192023;
+  border: 1px solid #6d6368;
+  border-radius: 4px;
+}
+
+.edit:hover {
+  background-color: #34373b;
+}
+
+.add-new:hover {
+  background-color: #34373b;
+}
+
+.save-button:hover {
+  background-color: #34373b;
+}
+
+.cancel-button:hover {
+  background-color: #34373b;
+}
+
+.delete-button:hover {
+  background-color: #34373b;
+}
+
+.add-header-button:hover {
+  background-color: #34373b;
+}
+
+.delete-header-button:hover {
+  background-color: #34373b;
+}
+
+.reglog-button:hover {
+  background-color: #34373b;
+}
+
+.post:hover {
+  background-color: #34373b;
+}
+
+.name-method-title:hover {
+  color: #daecee;
+}
+
+
+.edit-control-services {
+  margin-bottom: 22px;
+  margin-right: 2.5rem;
+}
+
+.edit-control-methods {
+  margin-bottom: 30px;
+  margin-right: 2.5rem;
+}
+
+.name-method-title-block {
+  margin-bottom: 2em;
+  width: 300px;
+  text-decoration: none
+
+}
+
+.name-method-title {
+  max-width: 300px;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-decoration: none
+}
+
+.name-service-title {
+  max-width: 300px;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-decoration: none
+}
+
+.name-service-title-block {
+  margin-bottom: 0.5em;
+  width: 300px;
+  text-decoration: none
+
+}
+
+.reglog {
+  margin: auto;
+  margin-bottom: 0.5em;
+}
+
+.reglog-label {
+  margin-bottom: 0.5em;
+}
+
+#qwe {
+  margin-bottom: 0.5em;
+}
+
+
+.input-field {
+  margin-top:0.5em;
+  border: 1px solid #6d6368;
+  height: 19px;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 6px 12px 8px;
+  width: 200px;
+}
+
+.reglog-button {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  width: 224px;
+  font-weight: 600;
+}
+
+.reglog .input-field {
+  margin-top:0.5em;
+  border: 1px solid #6d6368;
+  height: 19px;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 6px 12px 8px;
+  width: 200px;
+}
+
+.field .input-field {
+  margin-top:0.5em;
+  height: 19px;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 6px 12px 8px;
+  width: 156px;
+}
+
+.input-field-headers {
+  border: 1px solid #6d6368;
+  border-radius: 3px;
+  padding: 3px 6px 4px;
+  width: 168px;
+}
+
+
+.input-textarea {
+  margin-top:0.5em;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 6px 12px 8px;
+  width: 530px;
+
+}
+
+.save-button, .cancel-button {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.delete-button {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.save-button {
+  color: #99f;
+}
+
+.add-header-button, .delete-header-button {
+  padding-top: 3px;
+  padding-bottom: 4px;
+  margin-bottom: 1em;
+  font-weight: 400;
+}
+
+.block-href {
+  text-decoration: none;
+}
+
+.cancel-button, .delete-button {
+  align-self: start;
+  min-width: 10em;
+}
+
+.cancel-control, delete-control {
+  max-width: 0em;
+}
+
+.delete-control {
+  margin-left: auto;
+}
+
+.add-header-button {
+  margin-bottom: 3em;
+}
+
+canceldelete {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 104px;
+}
+
+.darksection {
+  background: #192023;
+  width: 960px;
+  height: 65px;
+}
+
+.minidarksection {
+  background: #192023;
+  width: 960px;
+  height: 5px;
+}
+
+.alignment-controller {
+  width: 100px;
+  height: 74px;
+}

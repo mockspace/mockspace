@@ -1,0 +1,6 @@
+include LICENSE
+include mockspace/schema.sql
+graft mockspace/static
+graft mockspace/templates
+graft tests
+global-exclude *.pyc

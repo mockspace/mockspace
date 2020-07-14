@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Add Service{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="editbody">
+  {% for message in get_flashed_messages() %}
+  <div class="flash-service">{{ message }}</div>
+  {% endfor %}
+  <div class="minidarksection"></div>
+  <form method="post">
+    <label for="title">Service name</label>
+    <input class="input-field" name="title" id="title" value="{{ request.form['title'] }}" >
+    <label for="body">Notes</label>
+    <textarea class="input-textarea" name="body" id="body">{{ request.form['body'] }}</textarea>
+       <formbuttons>
+      <input class="save-button" type="submit" value="Save">
+      <a class="cancel-control" href="{{ url_for('services.index') }}">
+        <input class="cancel-button" type="button" value="Cancel">
+      </a>
+    </formbuttons>
+  </form>
+</div>
+<div class="minidarksection"></div>
+{% endblock %}

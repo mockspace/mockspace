@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1 id="page-title">{% block title %}Web-services{% endblock %}</h1>
+{% if g.user %}
+<form action="{{ url_for('services.create') }}">
+    <button type="submit" class="add-new">Add web-service</button>
+</form>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% for service in services %}
+<a class="block-href" href="{{ url_for('methods.service', service_name=service['title']) }}">
+    <article class="post">
+        <header>
+            {% if g.user['id'] == service['author_id'] %}
+            <contrloler class="alignment-controller"></contrloler>
+            {% endif %}
+            <div align="center" class="name-service-title-block">
+                <p class="name-service-title">{{ service['title'] }}</p>
+            </div>
+            {% if g.user['id'] == service['author_id'] %}
+            <form action="{{ url_for('services.update', service_name=service['title']) }}">
+                <div class="edit-control-services">
+                    <button type="submit" class="edit">Edit</button>
+                </div>
+            </form>
+
+            {% endif %}
+        </header>
+    </article>
+</a>
+{% if not loop.last %}
+<div class="minidarksection"></div>
+{% endif %}
+{% endfor %}
+{% endblock %}
